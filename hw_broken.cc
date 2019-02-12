@@ -2,23 +2,31 @@
 #include <vector>
 #include <cmath>
 
+/** \file */
+/**
+*	\brief A function to caluclate the standard deviation of a given array
+*	\param a - the input array of integers for deviation to be calculated
+*	\param n - the length of array a[]
+*	\return Returns the standard deviation of the input array (as a double)
+*/
 
-
-int deviation( int* a, int n )
+///	fixed 2-11-19
+double deviation( int* a, int n )
 {
-	int sum;
-	for(size_t i = 0; i <= v.size(); i++)
+	int sum = 0;
+	for(size_t i = 0; i <= n - 1; i++)
 	{
-		sum += v[i];
-	} 
-	double mean = sum /= v.size();
-	double stddev = 0;
-	for(size_t i = 0; i <= v.size() -1; i++)
-	{
-		double stddev = stddev + (v[i] - mean) * (v[i] - mean); 
+		sum += a[i];
 	}
-	stddev /= v.size();
-	if( stddev = 0)
+	double mean = sum;
+	mean /= n;
+	double stddev = 0;
+	for(size_t i = 0; i <= n - 1; i++)
+	{
+		stddev = stddev + (a[i] - mean) * (a[i] - mean);
+	}
+	stddev /= n;
+	if( stddev == 0.0)
 		std::cout << "Sigma is zero." << std::endl;
 	return sqrt(stddev);
 }
